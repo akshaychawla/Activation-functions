@@ -13,7 +13,7 @@ from keras.layers.convolutional import Conv2D
 from keras.layers.convolutional import MaxPooling2D
 from keras import backend as K
 
-def model():
+def create_model():
 
     model_ip = Input(shape=(1,28,28))
     x = Conv2D(30, (5, 5))(model_ip)
@@ -28,7 +28,7 @@ def model():
     x = Lambda(lambda y: K.sin(y))(x)
     x = Dense(50)(x)
     x = Lambda(lambda y: K.sin(y))(x)
-    x = Dense(num_classes, activation='softmax')(x)
+    x = Dense(10, activation='softmax')(x)
 
     model = Model(inputs=model_ip, outputs=x)
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])

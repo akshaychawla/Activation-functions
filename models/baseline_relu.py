@@ -14,7 +14,7 @@ from keras.layers.convolutional import MaxPooling2D
 from keras import backend as K
 
 
-def model():
+def create_model():
     # create model
     model = Sequential()
     model.add(Conv2D(30, (5, 5), input_shape=(1, 28, 28), activation='relu'))
@@ -25,7 +25,7 @@ def model():
     model.add(Flatten())
     model.add(Dense(128, activation='relu'))
     model.add(Dense(50, activation='relu'))
-    model.add(Dense(num_classes, activation='softmax'))
+    model.add(Dense(10 , activation='softmax'))
     # Compile model
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
     print model.summary()
